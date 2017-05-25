@@ -60,9 +60,6 @@ namespace ViewModels
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
-
-        [Required]
-        public string UserName { get; set; }
     }
 
     public class RegisterViewModel
