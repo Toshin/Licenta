@@ -13,6 +13,7 @@
         <AssociationConnector Association="IndernSeekerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="IndernSeekerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="IndernSeekerModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="IndernSeekerModel.FK__AspNetUse__RoleI__5535A963" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
