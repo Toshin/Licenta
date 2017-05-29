@@ -78,6 +78,19 @@ namespace Licenta_v01.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+
+                    var userId = _myUserManager.GetIdByEmail(model.Email);
+                    // Removes the user from every role (in the ApplicationUserManager)
+                    var userRoles = await UserManager.GetRolesAsync(userId);
+                    await UserManager.RemoveFromRolesAsync(userId, userRoles.ToArray());
+
+                    // Add all of the roles returned from the webpage
+                    // This adds the user role corresponding to the user that has logged in
+                    // to the ApplicationUserManager - it's what the "IsInRole" method checks.
+                    await UserManager.AddToRoleAsync(userId, _myUserManager.GetUserRole(userId));
+                    //await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -154,7 +167,9 @@ namespace Licenta_v01.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await UserManager.AddToRoleAsync(user.Id, _myUserManager.GetUserRole(user.Id));
+                    //// The default role for a new registered user is "General User"
+                    //// this adds the role of the user to the 
+                    //await UserManager.AddToRoleAsync(user.Id, _myUserManager.GetUserRole(user.Id));
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

@@ -51,6 +51,25 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedRoleId, // 1. Store selected value in Model.State;
+                                                                     // when page is rendered after postback,
+                                                                     // take selected value from Model.State.
+
+                                              // 2. Take list of values from Model.States
+                                              Model.Roles,
+
+                                              // 3. Text for the first 'default' option
+                                              "- Please select a role -",
+
+                                              //4. A class name to assign to <select> tag
+                                              new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectedRoleId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

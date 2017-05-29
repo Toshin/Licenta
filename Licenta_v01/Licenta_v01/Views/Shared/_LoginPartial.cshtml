@@ -10,10 +10,6 @@
             {
                 <li>@Html.ActionLink("Manage Users", "Index", "User")</li>
             }
-            @if (User.IsInRole("General User"))
-            {
-                <li>@Html.ActionLink("TESTING GENERAL USER", "Index", "User")</li>
-            }
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
             </li>
