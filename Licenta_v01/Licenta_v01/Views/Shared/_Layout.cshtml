@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title InternSeeker</title>
+    <title>@ViewBag.Title InternRecruiter</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/images/icon.png" />
 
 </head>
 <body>
@@ -17,17 +19,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("InternSeeker", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div style="margin-top: 10px;">
+                    <a href="../Home/Index" id="mainLogo">InternRecruiter <i class="fa fa-search"></i></a>
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @if (Request.IsAuthenticated)
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
+                    <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+                    @*@if (User.IsInRole("General User"))*@
+                    @*@if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Submit Form", "SubmitForm", "User")</li>
-                    }
+                        <li>@Html.ActionLink("SUBMIT APPLICATION", "SubmitForm", "User")</li>
+                    }*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -37,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year InternSeeker v0.1</p>
+            <p>&copy; @DateTime.Now.Year InternRecruiter v0.1</p>
         </footer>
     </div>
 
@@ -46,3 +51,46 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<style>
+    body {
+        background-image: url("/Content/images/pattern.jpg");
+        background-repeat: repeat;
+        margin-top: 15px;
+    }
+
+    .navbar-inverse {
+        background-image: url("/Content/images/background.png");
+        background-repeat: repeat;
+        background-color: transparent;
+        background-size: 120px 100px;
+        min-height: 65px;
+    }
+    hr {
+        border-color: #232323;
+    }
+    .navbar-nav li a {
+        margin: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 7.5px;
+        margin-top: 1.5vh;
+        font-weight: bold;
+        border-radius: 5px;
+        color: #cfd3d3;
+        font-size: 1.4rem;
+    }
+    #mainLogo {
+        font-size: 28px;
+        color: #428bca;
+        text-decoration: none;
+    }
+    #mainLogo:hover {
+        color: #3276b1;
+        text-decoration: none;
+    }
+    #mainLogo .fa-search {
+        margin-left: -5px;
+        font-size: 35px;
+    }
+</style>

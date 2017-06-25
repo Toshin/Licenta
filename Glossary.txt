@@ -1,0 +1,39 @@
+Frameworks
+.NET
+intern
+User Interface (UI)
+browser
+Slack
+device
+architecture
+Mac OS
+Windows
+client
+HTML
+JavaScript
+TypeScript
+browser-supported languages
+server-side processing 
+CSS
+CLR
+.NET Core
+Java
+IDE
+just-in-time compilation
+ASPX pages
+Razor
+back-end
+API
+SPA
+HTTP
+HTTP calls
+AngularJS
+AngularJS 2
+React
+EmberJS
+content negotiation
+IIS
+SRS
+PAC
+MVC
+Browser
