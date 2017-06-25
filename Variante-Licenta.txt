@@ -1,0 +1,64 @@
+!!! 15 IUNIE INTALNIRE (PENTRU NOTA)
+!!! 16 IUNIE - PARTEA SCRISA
+!!! 19 IUNIE - ULTIMA INTALNIRE INAINTE DE PREDARE (PENTRU DOCUMENTATIE - VARIANTA APROX FINALA !!!!)
+!!! 26 IUNIE - PREDARE (DARIUS BUFNEA SAU FOREST)
+ACTE NECESARE (STUDENTI -> EXAMEN DE LICENTA -> CALENDAR SI REGLEMENTARI -> HOTARARE -> ANEXA 2 si ANEXA 6 etc)
+
+
+1. doar internship + mers pe template
+2. internship/angajare + teste online (fara template)
+
+- optiunea de a salva formularul completat inainte de a-l trimite (SAVE AS or PRINT) 
+
+- formulare folosind templates (download, fill, upload) sau formulare direct pe site?
+
+
+
+
+
+
+
+
+Observatii:
+- aplicatii web
+- client-server
+- mvc
+- alte pattern-uri locale (observer, singleton etc - daca sunt)
+- workflow (se poate defini prin UML activity diagram - pasii pe care ii urmeaza un potential intern pentru a se inscrie la internship)
+
+TITLU: Aplicatie WEB pentru Internship-uri
+SAU: Dezvoltare Aplicatii WEB folosind tehnologii .NET
+
+STRUCTURA LUCRARE:
+1. Introducere
+	- avantaje aplicatii web
+	- descriere a aplicatiei practice
+	- descriere pe scurt a capitolelor
+2. Aplicatii WEB
+	- General stuff about WEB apps (what is it, patterns etc)
+	- MVC in general: avantaje, necesitati, arii de raspandire
+3. Aplicatii web using .NET
+	- descrierea avantajelor folosirii frameworkurilor din .NET intr-o aplicatie WEB 
+	- frameworkuri din C# pentru aplicatii WEB	
+	- comparatie intre frameworkurile din C# + evidentierea lor - sunt cele mai folosite (WEB API vs MVC - cele mai folosite)
+	
+4. Capitolul APLICATIE
+	TITLU: Aplicatie WEB - InternSeeker
+	Descriere pe scurt a aplicatiei
+	Analiza cerintelor
+	- descriere functionalitati/use cases (UML)
+	- scenarii de utilizare
+	- workflow pentru functionalitatile de baza a aplicatiei 	(UML Activity Diagram)
+	Proiectare
+	- justificare alegere MVC?
+	- descriere entitati, roluri, atribute etc
+	- asociere responsabilitati (cu rolul)
+	Implementare
+	- evidentierea framework-ului MVC .NET
+	- specializare MVC (extindere)
+	Cazuri de testare (print screen)
+5. Concluzii si dezvoltari ulterioare (5 - What can be improved? 6 - Conclusion)
+	- concluzii trase referitoare la Aplicatii web in .NET
+	- partile mai dificile
+	- unde se poate imbunatati?
+	- se poate transforma in ceva generic (template etc)

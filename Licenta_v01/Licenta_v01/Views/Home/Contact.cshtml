@@ -1,17 +1,51 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contact Page";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h3>Company's Contact Details</h3>
+<div class="row">
+    @*<div class="col-md-8 body-content">
+        <form class="inputForm">
+            <div class="form-group">
+                <input id="nameInput" type="text" placeholder="Name"/>
+            </div>
+        </form>
+    </div>*@
+    <div class="col-md-4">
+        <div class="infoBlock">
+            <h3 class="importantInfo">OFFICE</h3>
+            <i class="fa fa-map-marker"></i>
+            Company Address,<br/>
+            City,<br/>
+            Country,<br/>
+            <i class="fa fa-phone"></i>
+            Phone,<br/>
+            <i class="fa fa-envelope"></i>
+            <b class="importantInfo">Email</b>
+        </div>
+    </div>
+</div>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<style>
+    .infoBlock {
+        border-style: dashed;
+        border-color: grey;
+        border-width: 2px;
+        padding: 25px;
+        padding-top: 10px;
+        padding-left: 40px;
+        color: #83A7A5;
+    }
+    .inputForm {
+        margin: 0 0 -2em;
+        padding: 0;
+        font-size: 0.8rem;
+        color: #255D5C;
+        font-family: 'Roboto Bold';
+    }
+    .importantInfo {
+        color: #255D5C;  
+    }
+    .fa-phone {
+        font-size: 19px;
+    }
+</style>

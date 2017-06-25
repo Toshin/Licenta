@@ -1,0 +1,9 @@
+http://www.magicwebsolutions.co.uk/blog/the-benefits-of-web-based-applications.htm
+https://www.lifewire.com/what-is-a-web-application-3486637
+https://www.maxcdn.com/one/visual-glossary/web-application/
+https://en.wikipedia.org/wiki/Web_application#cite_note-1
+
+https://stackoverflow.com/questions/2035060/what-design-patterns-are-mostly-used-in-web-enterprise-applications
+https://www.google.ro/search?q=web+applications+patterns&oq=web+applications+patterns&aqs=chrome..69i57.4255j0j1&sourceid=chrome&ie=UTF-8#q=web+applications+design+patterns
+
+https://weblogs.asp.net/shijuvarghese/asp-net-mvc-vs-asp-net-web-form
