@@ -1,0 +1,28 @@
+﻿@model ViewModels.ErrorViewModel
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Error!</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Error Message: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ErrorMessage)
+        </dd>
+
+    </dl>
+</div>
+
+<style>
+    dd, dt {
+        padding: 4px;
+    }
+</style>

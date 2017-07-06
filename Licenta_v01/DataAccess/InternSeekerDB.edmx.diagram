@@ -9,12 +9,17 @@
         <EntityTypeShape EntityType="IndernSeekerModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="IndernSeekerModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="IndernSeekerModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IndernSeekerModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="IndernSeekerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="IndernSeekerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="IndernSeekerModel.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="IndernSeekerModel.FK__AspNetUse__RoleI__5535A963" />
-      </Diagram>
+        <EntityTypeShape EntityType="IndernSeekerModel.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="IndernSeekerModel.AspNetUser" Width="1.5" PointX="3" PointY="2.125" />
+        <AssociationConnector Association="IndernSeekerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="IndernSeekerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="IndernSeekerModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="IndernSeekerModel.Language" Width="1.5" PointX="7.5" PointY="9.625" />
+        <EntityTypeShape EntityType="IndernSeekerModel.Technology" Width="1.5" PointX="7.5" PointY="7.25" />
+        <EntityTypeShape EntityType="IndernSeekerModel.InternshipApplication" Width="1.5" PointX="5.25" PointY="7.25" />
+        <AssociationConnector Association="IndernSeekerModel.ApplicationsLanguages" />
+        <AssociationConnector Association="IndernSeekerModel.ApplicationsTechnologies" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -33,8 +35,12 @@ namespace Licenta_v01.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(UserViewModel user)
         {
-            await _userManager.UpdateUser(user);
-            return View("Details", _userManager.GetUser(user.Id));
+            if (ModelState.IsValid)
+            {
+                await _userManager.UpdateUser(user);
+                return View("Details", _userManager.GetUser(user.Id));
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize]
@@ -43,23 +49,5 @@ namespace Licenta_v01.Controllers
             List<UserViewModel> model = _userManager.GetAllUsers();
             return View(model);
         }
-
-        // GET: Forms
-        [Authorize]
-        public ActionResult SubmitForm()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult SubmitForm(UserViewModel form)
-        {
-            form.Id = User.Identity.GetUserId();
-
-            _userManager.Add(form);
-
-            return RedirectToAction("Index", "Home");
-        }
-
     }
 }

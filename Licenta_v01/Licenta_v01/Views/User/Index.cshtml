@@ -4,31 +4,96 @@
     ViewBag.Title = "Manage Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (User.IsInRole("Administrator"))
+{
 
-<h2>Manage Users</h2>
+
+    <h2>Manage Users</h2>
 
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
-<table class="table">
-    <tr>
-        <th>
-            Email Address
-        </th>
-        <th></th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                Email Address
+            </th>
+            <th></th>
+        </tr>
 
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddres)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new {id = item.Id})
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+@if (User.IsInRole("Manager"))
+{
+    <h2>Manage Applications</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Email Address
+            </th>
+            <th>
+                Application Status
+            </th>
+            <th>
+                Test Schedule Date
+            </th>
+        </tr>
+
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.EmailAddres)
+                potential.Intern1@@test.com
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id=item.Id })
+                Accepted
+            </td>
+            <td>
+                10 july 2017
+            </td>
+            <td>
+                <a href="#">Details</a>
             </td>
         </tr>
-    }
+        <tr>
+            <td>
+                potential.Intern2@@test.com
+            </td>
+            <td>
+                Rejected
+            </td>
+            <td>
+                Not scheduled
+            </td>
+            <td>
+                <a href="#">Details</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                potential.Intern3@@test.com
+            </td>
+            <td>
+                Pending
+            </td>
+            <td>
+                Not yet scheduled
+            </td>
+            <td>
+                <a href="#">Details</a>
+            </td>
+        </tr>
 
-</table>
- 
+    </table>
+}

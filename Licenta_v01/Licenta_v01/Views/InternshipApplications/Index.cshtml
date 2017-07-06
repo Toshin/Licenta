@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ViewModels.InternshipApplicationViewModel>
+
+@{
+    ViewBag.Title = "Internship Applications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Internship Applications</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            User Email
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Test Schedule Date
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+
+        <td>
+            @Html.ActionLink("Manage Application", "Edit", new { id = item.UserId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.UserId })
+        </td>
+    </tr>
+}
+
+</table>

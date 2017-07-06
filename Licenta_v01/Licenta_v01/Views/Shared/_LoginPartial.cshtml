@@ -8,17 +8,23 @@
         <ul class="nav navbar-nav navbar-right">
             @if (User.IsInRole("Manager"))
             {
-                <li>@Html.ActionLink("MANAGE APPLICATIONS", "Index", "User")</li>
+                <li>@Html.ActionLink("MANAGE APPLICATIONS", "Index", "InternshipApplications")</li>
             }
-            @if (Request.IsAuthenticated)
+            @if (User.IsInRole("Administrator"))
             {
                 <li>@Html.ActionLink("MANAGE USERS", "Index", "User")</li>
             }
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.GetUserName()</a>
                 <ul class="dropdown-menu">
+                    @if (User.IsInRole("General User"))
+                    { 
                     <li>
-                        @Html.ActionLink("CHANGE PASSWORD", "ChangePassword", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        @Html.ActionLink("MY APPLICATION", "AppDetails", "InternshipApplications", new { id = User.Identity.GetUserId() }, htmlAttributes: new { title = "Details" })
+                    </li>                    
+                    }
+                    <li>
+                        @Html.ActionLink("CHANGE PASSWORD", "ChangePassword", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
                     </li>
                 </ul>
             </li>

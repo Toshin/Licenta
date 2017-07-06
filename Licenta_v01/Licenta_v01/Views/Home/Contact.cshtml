@@ -1,29 +1,80 @@
-﻿@{
-    ViewBag.Title = "Contact Page";
+﻿@model ViewModels.ContactViewModel
+@{
+    ViewBag.Title = "Contact Us";
 }
-<h3>Company's Contact Details</h3>
-<div class="row">
-    @*<div class="col-md-8 body-content">
-        <form class="inputForm">
-            <div class="form-group">
-                <input id="nameInput" type="text" placeholder="Name"/>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <h3>Please use this form to submit your questions, feedback and information requests. <br/>
+            You will be contacted shortly after.
+        </h3>
+        <hr/>
+        <div class="col-md-8 body-content">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "form-control", placeholder = "Name"}})
+                        @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Surname, new {htmlAttributes = new {@class = "form-control", placeholder = "Surname"}})
+                        @Html.ValidationMessageFor(model => model.Surname, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PhoneNumber, new {htmlAttributes = new {@class = "form-control", placeholder = "Phone Number"}})
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EmailAddress, new {htmlAttributes = new {@class = "form-control", placeholder = "Email Address"}})
+                        @Html.ValidationMessageFor(model => model.EmailAddress, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Message, new {htmlAttributes = new {@class = "form-control", placeholder = "Message"}})
+                        @Html.ValidationMessageFor(model => model.Message, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <div class="g-recaptcha" data-sitekey="6LeW1SYUAAAAAHOC7WFOwycODXspd6rvghrvTa06"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Send Message" class="btn btn-primary"/>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>*@
-    <div class="col-md-4">
-        <div class="infoBlock">
-            <h3 class="importantInfo">OFFICE</h3>
-            <i class="fa fa-map-marker"></i>
-            Company Address,<br/>
-            City,<br/>
-            Country,<br/>
-            <i class="fa fa-phone"></i>
-            Phone,<br/>
-            <i class="fa fa-envelope"></i>
-            <b class="importantInfo">Email</b>
+        </div>
+        <div class="col-md-4">
+            <div class="infoBlock">
+                <h3 class="importantInfo">OFFICE</h3>
+                <i class="fa fa-map-marker"></i>
+                Company Address,<br/>
+                City,<br/>
+                Country,<br/>
+                <i class="fa fa-phone"></i>
+                Phone,<br/>
+                <i class="fa fa-envelope"></i>
+                <b class="importantInfo">Email</b>
+            </div>
         </div>
     </div>
-</div>
+}
 
 <style>
     .infoBlock {
@@ -33,19 +84,28 @@
         padding: 25px;
         padding-top: 10px;
         padding-left: 40px;
-        color: #83A7A5;
+        color: #3276b1;
     }
     .inputForm {
         margin: 0 0 -2em;
         padding: 0;
         font-size: 0.8rem;
-        color: #255D5C;
+        color: #428bca;
         font-family: 'Roboto Bold';
     }
     .importantInfo {
-        color: #255D5C;  
+        color: #428bca;  
     }
     .fa-phone {
         font-size: 19px;
+    }
+    input {
+        max-width: 500px;
+    }
+    textarea.form-control{
+        width: 657px;
+        margin: 0px;
+        height: 100px;
+        max-width: 500px;
     }
 </style>

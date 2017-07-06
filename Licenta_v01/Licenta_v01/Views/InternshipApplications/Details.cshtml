@@ -1,0 +1,136 @@
+﻿@model ViewModels.InternshipApplicationViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            User Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEmail)
+        </dd>
+
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Surname
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            Phone Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        
+        <dt>
+            Spoken Languages
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedL)
+        </dd>
+
+        <dt>
+            Known Technologies
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedT)
+        </dd>
+
+        <dt>
+            Personal Projects
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalProjects)
+        </dd>
+
+        <dt>
+            University
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University)
+        </dd>
+
+        <dt>
+            Faculty
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty)
+        </dd>
+
+        <dt>
+            Study Year
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudyYear)
+        </dd>
+
+        <dt>
+            Do you want to stay in the company after the internship?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WantsToBeHired)
+        </dd>
+
+        <dt>
+            What would recommend you for this internship?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecommendForInternship)
+        </dd>
+
+        <dt>
+            Internship Application Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            Test Schedule Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Manage Application", "Edit", new { id = Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<style>
+    dd,dt {
+        padding: 4px;
+    }
+</style>

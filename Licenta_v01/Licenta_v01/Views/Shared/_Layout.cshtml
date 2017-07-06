@@ -9,6 +9,7 @@
     @Styles.Render("~/Content/fontawesome")
     <link rel="shortcut icon" type="image/x-icon" href="~/Content/images/icon.png" />
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,14 +26,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-                    <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
-                    <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
-                    @*@if (User.IsInRole("General User"))*@
-                    @*@if (Request.IsAuthenticated)
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">@Html.ActionLink("ABOUT", "About", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+
+                    @if (User.IsInRole("General User"))
                     {
-                        <li>@Html.ActionLink("SUBMIT APPLICATION", "SubmitForm", "User")</li>
-                    }*@
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SubmitApplication" ? "active" : "")">@Html.ActionLink("SUBMIT APPLICATION", "SubmitApplication", "InternshipApplications")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -42,7 +43,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year InternRecruiter v0.1</p>
+            <p><b>Bachelor Thesis 2017 -</b> InternRecruiter v1.0</p>
+            <p><b>Student:</b> Laslo Marian</p>
+            <p><b>Advisor:</b> Assoc. Prof. Dr. Niculescu Virginia</p>
         </footer>
     </div>
 
@@ -66,13 +69,23 @@
         background-size: 120px 100px;
         min-height: 65px;
     }
+
     hr {
         border-color: #232323;
     }
+
+    .navbar-nav .active a {
+        background-color: transparent !important;
+        border-bottom: solid 2px;
+        border-color: #428bca;
+        border-radius: 0;
+        padding-bottom: 2px;
+    }
+
     .navbar-nav li a {
         margin: 5px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
         padding: 7.5px;
         margin-top: 1.5vh;
         font-weight: bold;
@@ -80,17 +93,68 @@
         color: #cfd3d3;
         font-size: 1.4rem;
     }
+
     #mainLogo {
         font-size: 28px;
         color: #428bca;
         text-decoration: none;
+        margin-right: 15px;
     }
-    #mainLogo:hover {
-        color: #3276b1;
-        text-decoration: none;
-    }
-    #mainLogo .fa-search {
-        margin-left: -5px;
-        font-size: 35px;
+
+        #mainLogo:hover {
+            color: #3276b1;
+            text-decoration: none;
+        }
+
+        #mainLogo .fa-search {
+            margin-left: -5px;
+            font-size: 35px;
+        }
+
+    /* Navbar button toggle on higher screen size.*/
+    @@media (max-width: 1000px) {
+        .navbar-header {
+            float: none;
+        }
+
+        .navbar-left, .navbar-right {
+            float: none !important;
+        }
+
+        .navbar-toggle {
+            display: block;
+        }
+
+        .navbar-collapse {
+            border-top: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px;
+        }
+
+        .navbar-collapse.collapse {
+            display: none !important;
+        }
+
+        .navbar-nav {
+            float: none !important;
+            margin-top: 7.5px;
+        }
+
+            .navbar-nav > li {
+                float: none;
+            }
+
+                .navbar-nav > li > a {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+        .collapse.in {
+            display: block !important;
+        }
     }
 </style>

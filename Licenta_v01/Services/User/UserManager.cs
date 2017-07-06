@@ -18,28 +18,19 @@ namespace Services.User
             _dbContext = new InternSeekerEntities();
         }
 
-        public string GetUserRole(string id)
-        {
-            var user = _dbContext.AspNetUsers.FirstOrDefault(u => u.Id == id);
-            var role = _dbContext.AspNetRoles.FirstOrDefault(r => r.Id == user.RoleID);
-            return role.Name;
-        }
-
         public UserViewModel GetUser(string id)
         {
             var user = _dbContext.AspNetUsers.FirstOrDefault(u => u.Id == id);
-            var role = _dbContext.AspNetRoles.FirstOrDefault(r => r.Id == user.RoleID);
+            var role = user.AspNetRoles.First();
 
             var personViewModel = new UserViewModel
             {
                 Id = user.Id,
-                Name = user.Name,
-                Surname = user.Surname,
+                UserName = user.UserName,
                 EmailAddres = user.Email,
-                PhoneNumber = user.PhoneNumber,
-                Role = role.Name,
                 SelectedRoleId = int.Parse(role.Id),
-                Roles = GetSelectListItems()
+                Roles = GetSelectListItems(),
+                Role = role.Name
             };
             return personViewModel;
         }
@@ -47,14 +38,14 @@ namespace Services.User
         public async Task UpdateUser(UserViewModel userForm)
         {
             var user = _dbContext.AspNetUsers.FirstOrDefault(u => u.Id == userForm.Id);
+            var role = _dbContext.AspNetRoles.FirstOrDefault(r => r.Id == userForm.SelectedRoleId.ToString());
 
             if (user != null)
             {
-                user.Name = userForm.Name;
-                user.Surname = userForm.Surname;
-                user.PhoneNumber = userForm.PhoneNumber;
                 user.Email = userForm.EmailAddres;
-                user.RoleID = userForm.SelectedRoleId.ToString();
+                user.UserName = userForm.UserName;
+                user.AspNetRoles.Clear();
+                user.AspNetRoles.Add(role);
             }
 
             await _dbContext.SaveChangesAsync();
@@ -70,28 +61,11 @@ namespace Services.User
                     new UserViewModel
                     {
                         Id=user.Id,
-                        Name =user.Name,
-                        Surname = user.Surname,
                         EmailAddres = user.Email,
-                        PhoneNumber = user.PhoneNumber
+                        UserName = user.UserName
                     });
             }
             return viewModels;
-        }
-
-        public void Add(UserViewModel userForm)
-        {
-            var user = _dbContext.AspNetUsers.FirstOrDefault(u => u.Id == userForm.Id);
-
-            if (user != null)
-            {
-                user.Name = userForm.Name;
-                user.Surname = userForm.Surname;
-                user.PhoneNumber = userForm.PhoneNumber;
-                user.Email = userForm.EmailAddres;
-            }
-
-            _dbContext.SaveChanges();
         }
 
         public string GetIdByEmail(string email)
@@ -99,6 +73,7 @@ namespace Services.User
             var user = _dbContext.AspNetUsers.FirstOrDefault(u => u.Email == email);
             return user.Id;
         }
+
         private IEnumerable<SelectListItem> GetSelectListItems()
         {
             var selectList = new List<SelectListItem>
